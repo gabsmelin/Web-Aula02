@@ -1,12 +1,17 @@
+import { Link } from "react-router-dom";
+
+ 
 export default function(props) {
     return(
         <>
           <header>
             <h1>Flamengudo</h1>
             <ul>
-                <li><a href="">Arrascaeta</a></li>
-                <li><a href="">Bruno Henrique</a></li>
-                <li><a href="">GabiGol</a></li>
+                <li><Link to="/home">Home</Link></li>
+                <li><Link to="/produtos">Produtos</Link></li>
+                <li><Link to="/editar/produtos/1">Editar Produto - 01</Link></li>
+                <li><Link to="/editar/produtos/1">Editar Produto - 02</Link></li>
+                <li><Link to="/editar/produtos/1">Editar Produto - 03</Link></li>
             </ul>
         </header>  
         </>

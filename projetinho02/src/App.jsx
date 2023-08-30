@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import Cabecalho from "./Components/Cabecalho";
 import Conteudo from "./Components/Conteudo";
 import Rodape from "./Components/Rodape";
@@ -14,7 +15,7 @@ export default function App() {
     <>
       {/*Crie um cabecalho com h1 de titulo*/}
       <Cabecalho/>
-      <Conteudo propsNovo={novoConteudo} uriLogoReact={LogoReact} altLogoReact={altLogo}/>
+      <Outlet/>
       <Rodape/>
     </>
   );
