@@ -9,24 +9,26 @@ export default function Produtos() {
             <table>
                 <thead>
                     <tr>
-                        <th>ID:</th>
-                        <th>Nome:</th>
-                        <th>Preço:</th>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    { ListaProdutos.map((produtos, indice) => {
-                        <tr key={indice}>
-                            <td>{produtos.id}</td>
-                            <td>{produtos.nome}</td>
-                            <td>{produtos.preco}</td>
-                        </tr>
-                    })}
+                    {ListaProdutos.map((produto,indice)=>(
+                    <tr key={indice}>
+                        <td>{produto.id}</td>
+                        <td>{produto.nome}</td>
+                        <td>{produto.preco}</td>
+                        <td><Link to={`/editar/produtos/${produto.id}`}>Editar</Link></td>
+                    </tr>
+                ))}
                 </tbody>
                 <tfoot>
-                    <tr>
-                        <td></td>
-                    </tr>
+                <tr>
+                <td colSpan={2}>PRODUTOS</td>
+                </tr>
                 </tfoot>
             </table>
         </div>
