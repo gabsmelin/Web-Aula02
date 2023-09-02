@@ -1,14 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import './index.css'
+
 //Importando componentes do router-dom
 import {createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 //importanto páginas
-import EditarProdutos from './routes/EditarProdutos.jsx';
 import Erro404 from './routes/Erro404.jsx';
 import Home from './routes/Home.jsx';
+import EditarProdutos from './routes/EditarProdutos.jsx';
+import ExcluirProdutos from './routes/ExcluirProduto.jsx';
 import Produtos from './routes/Produtos.jsx';
 
 const router = createBrowserRouter([
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
         { path: '/home', element: <Home />},
         { path: '/produtos', element: <Produtos />},
         { path: '/editar/produtos/:id', element: <EditarProdutos />},
+        { path: '/excluir/produtos/:id', element: <ExcluirProdutos />},
     ]
   },
 ])

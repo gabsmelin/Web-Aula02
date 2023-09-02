@@ -18,6 +18,20 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+table.comBordaSimples {
+  border-collapse: collapse; /* CSS2 */
+  background: #FFFFF0;
+}
+
+table.comBordaSimples td {
+  border: 1px solid black;
+}
+
+table.comBordaSimples th {
+  border: 1px solid black;
+  background: #F0FFF0;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

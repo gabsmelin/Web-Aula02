@@ -1,4 +1,4 @@
-export default function(props) {
+export default function Conteudo(props) {
     return(
         <>
         <p>{props.propsNovo}</p>
