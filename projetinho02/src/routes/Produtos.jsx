@@ -1,35 +1,29 @@
 import { Link } from "react-router-dom";
 import { ListaProdutos } from "../Components/ListaProdutos";
-import "./Produtos.css";
+import  styles from "./Produtos.module.css";
 import { AiFillEdit as Editar } from "react-icons/ai";
 import { AiFillDelete as Excluir } from "react-icons/ai";
 
 export default function Produtos() {
     document.title="ListaProdutos";
 
-    const tbEstilos = {
-        textAlign:"center",
-        letterSpacing:"2px",
-        color:"#0000ff",
-        textDecoration:"none"
-    }
 
     return(
         <div>
             <h1>Produtos</h1>
 
-            <table>
+            <table className={styles.table}>
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Nome</th>
-                        <th>Preço</th>
-                        <th>Editar|Excluir</th>
-                    </tr>
+                        <th className={styles.tableth}>Id</th>
+                        <th className={styles.tableth}>Nome</th>
+                        <th className={styles.tableth}>Preço</th>
+                        <th className={styles.tableth}>Editar|Excluir</th>
+                    </tr>  
                 </thead>
                 <tbody>
                     {ListaProdutos.map((produto,indice)=>(
-                    <tr key={indice} style={tbEstilos}>
+                    <tr key={indice}>
                         <td>{produto.id}</td>
                         <td>{produto.nome}</td>
                         <td>{produto.preco}</td>
@@ -43,7 +37,7 @@ export default function Produtos() {
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colSpan={4} style={tbEstilos}>Produtos</td>
+                        <td colSpan={4}>Produtos</td>
                     </tr>
                 </tfoot>    
             </table>

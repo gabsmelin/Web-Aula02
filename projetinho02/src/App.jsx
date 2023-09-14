@@ -2,7 +2,6 @@ import { Outlet } from "react-router-dom";
 import Cabecalho from "./Components/Cabecalho";
 import Conteudo from "./Components/Conteudo";
 import Rodape from "./Components/Rodape";
-import LogoReact from "./assets/react.svg";
 
 //Para criar elemento, obrigatoriamente temos que usar o export.
 export default function App() {
