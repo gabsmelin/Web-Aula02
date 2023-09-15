@@ -1,5 +1,5 @@
 
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ListaProdutos } from "../Components/ListaProdutos";
 import { useState } from "react";
 
@@ -17,9 +17,10 @@ export default function AdicionarProduto() {
 
     //Atulizando escrita dentro do input até chegar no resultado final(escrita que irá ser adicionada na nossa lista)
     const handleChange = (event) => {
-        const {name, value} =event.target;
+        const {name, value} = event.target;
 
         setProduto({...produtos,[name]:value})
+        console.log(produtos.nome)
     }
 
     //função para adicionar os valores de fato
