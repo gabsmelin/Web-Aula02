@@ -1,12 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
-
+import { ListaProdutos } from "../Components/ListaProdutos";
 export default function ExcluirProdutos() {
     document.title = "Excluir Produtos";
 
     const { id } = useParams();
   
     const navigate = useNavigate();
-  
+
     const produto = ListaProdutos.filter(
       (item) => item.id == id
     )[0];

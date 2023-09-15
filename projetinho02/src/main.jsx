@@ -11,6 +11,7 @@ import Home from './routes/Home.jsx';
 import EditarProdutos from './routes/EditarProdutos.jsx';
 import ExcluirProdutos from './routes/ExcluirProduto.jsx';
 import Produtos from './routes/Produtos.jsx';
+import AdicionarProduto from './routes/AdicionarProduto.jsx';
 
 const router = createBrowserRouter([
   { path: '/', element: <App />, 
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
         { path: '/produtos', element: <Produtos />},
         { path: '/editar/produtos/:id', element: <EditarProdutos />},
         { path: '/excluir/produtos/:id', element: <ExcluirProdutos />},
+        { path: '/adicionar/produtos', element: <AdicionarProduto />},
     ]
   },
 ])
