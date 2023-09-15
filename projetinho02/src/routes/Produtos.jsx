@@ -3,15 +3,28 @@ import { ListaProdutos } from "../Components/ListaProdutos";
 import  styles from "./Produtos.module.css";
 import { AiFillEdit as Editar } from "react-icons/ai";
 import { AiFillDelete as Excluir } from "react-icons/ai";
+import { useEffect, useState } from "react";
 
 export default function Produtos() {
     document.title="ListaProdutos";
 
+    const [counter, setCounter] = useState(0);
+
+    useEffect(() => {
+        console.log("useEffect será renderizado sempre que o componente ou qualquer objeto que for atualizado");
+
+    })
 
     return(
         <div>
             <h1>Produtos</h1>
 
+            <div>
+                <button onClick={()=>setCounter(counter + 1) }>Couter - {counter}</button>
+                <button onClick={()=>setCounter(0) }>Zerar</button>
+            </div>
+
+           
             <table className={styles.table}>
                 <thead>
                     <tr>
