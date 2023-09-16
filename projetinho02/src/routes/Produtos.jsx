@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ListaProdutos } from "../Components/ListaProdutos";
+//import { ListaProdutos } from "../Components/ListaProdutos";
 import  styles from "./Produtos.module.css";
 import { AiFillEdit as Editar } from "react-icons/ai";
 import { AiFillDelete as Excluir } from "react-icons/ai";
@@ -9,11 +9,17 @@ export default function Produtos() {
     document.title="ListaProdutos";
 
     const [counter, setCounter] = useState(0);
+    const [produtos, setProdutos] = useState([{}]);
 
     useEffect(() => {
         console.log("useEffect será renderizado sempre que o componente ou qualquer objeto que for atualizado");
+        fetch("http://localhost:5000/produtos")
+            .then((lista) => lista)
+            .then((listProdutos) => {
+                setProdutos(listProdutos)
+            })
 
-    })
+    },[]);
 
     return(
         <div>
@@ -35,7 +41,7 @@ export default function Produtos() {
                     </tr>  
                 </thead>
                 <tbody>
-                    {ListaProdutos.map((produto,indice)=>(
+                    {produtos.map((produto,indice)=>(
                     <tr key={indice}>
                         <td>{produto.id}</td>
                         <td>{produto.nome}</td>
