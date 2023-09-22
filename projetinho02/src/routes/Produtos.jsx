@@ -9,14 +9,20 @@ export default function Produtos() {
     document.title="ListaProdutos";
 
     const [counter, setCounter] = useState(0);
+    const [counter2, setCounter2] = useState(0);
+
+    useEffect(() => {
+        console.log("Pá e pum")
+    },[counter2])
+
     const [produtos, setProdutos] = useState([{}]);
 
     useEffect(() => {
         console.log("useEffect será renderizado sempre que o componente ou qualquer objeto que for atualizado");
         fetch("http://localhost:5000/produtos")
-            .then((lista) => lista)
+            .then((lista) => lista.json())
             .then((listProdutos) => {
-                setProdutos(listProdutos)
+                setProdutos(listProdutos);
             })
 
     },[]);
@@ -27,6 +33,7 @@ export default function Produtos() {
 
             <div>
                 <button onClick={()=>setCounter(counter + 1) }>Couter - {counter}</button>
+                <button onClick={()=>setCounter2(counter2 + 1) }>Couter - {counter2}</button>
                 <button onClick={()=>setCounter(0) }>Zerar</button>
             </div>
 
