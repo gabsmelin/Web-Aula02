@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-//import { ListaProdutos } from "../Components/ListaProdutos";
 import  styles from "./Produtos.module.css";
 import { AiFillEdit as Editar } from "react-icons/ai";
 import { AiFillDelete as Excluir } from "react-icons/ai";
@@ -19,8 +18,13 @@ export default function Produtos() {
 
     useEffect(() => {
         console.log("useEffect será renderizado sempre que o componente ou qualquer objeto que for atualizado");
-        fetch("http://localhost:5000/produtos")
-            .then((lista) => lista.json())
+        fetch("http://localhost:5000/produtos"),{
+            methof: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            } 
+            }
+            .then((response) => response.json())
             .then((listProdutos) => {
                 setProdutos(listProdutos);
             })
