@@ -3,6 +3,7 @@ import  styles from "./Produtos.module.css";
 import { AiFillEdit as Editar } from "react-icons/ai";
 import { AiFillDelete as Excluir } from "react-icons/ai";
 import { useEffect, useState } from "react";
+import ModalInserir from "../Components/ModalInserir/ModalInserir";
 
 export default function Produtos() {
     document.title="ListaProdutos";
@@ -31,9 +32,14 @@ export default function Produtos() {
 
     },[]);
 
+    const [open, setOpen] = useState(false)
+
     return(
         <div>
             <h1>Produtos</h1>
+
+            {open ? <ModalInserir open={open} setOpen={setOpen}/> : ""}
+            <button onClick={()=> setOpen=(true)}>Open - Modal</button>
 
             <div>
                 <button onClick={()=>setCounter(counter + 1) }>Couter - {counter}</button>
