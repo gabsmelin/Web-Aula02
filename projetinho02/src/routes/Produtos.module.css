@@ -1,12 +1,4 @@
-div {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-}
-h1 {
-    text-align: center;
-}
+
 
 .table {
     border-collapse: collapse; /* CSS2 */

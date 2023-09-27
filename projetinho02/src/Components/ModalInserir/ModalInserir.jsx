@@ -62,7 +62,7 @@ export default function ModalInserir(props) {
         <h1>CADASTRO DE PRODUTOS</h1>
         
         <div>
-        <button onClick={()=> props.setOpen(false)}> X </button>
+        <button className="btnClose" onClick={()=> props.setOpen(false)}> X </button>
             <form onSubmit={handleAdd}>
     
                 <fieldset>
