@@ -1,7 +1,44 @@
 {
-    "produtos":  [
-    {"id": 1, "nome": "Bola de Fut#ebol", "preco": 100},
-    {"id": 2, "nome": "Chuteira", "preco": 200},
-    {"id": 4, "nome": "Calção da Seleção Brasileira", "preco": 150}
-    ]
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Bola de Futebol",
+      "preco": 100
+    },
+    {
+      "id": 2,
+      "nome": "Chuteira",
+      "preco": 200
+    },
+    {
+      "id": 3,
+      "nome": "Calção da Seleção Brasileira",
+      "preco": 150
+    },
+    {
+      "nome": "Bola de Futebol",
+      "preco": "65",
+      "id": 4
+    },
+    {
+      "nome": "hamburguer",
+      "preco": "15",
+      "id": 5
+    },
+    {
+      "nome": "melo lindo",
+      "preco": "10000",
+      "id": 6
+    },
+    {
+      "nome": "garrafa d'água",
+      "preco": "50",
+      "id": 7
+    },
+    {
+      "nome": "churros",
+      "preco": "2.50",
+      "id": 8
+    }
+  ]
 }

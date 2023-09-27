@@ -8,45 +8,31 @@ import ModalInserir from "../Components/ModalInserir/ModalInserir";
 export default function Produtos() {
     document.title="ListaProdutos";
 
-    const [counter, setCounter] = useState(0);
-    const [counter2, setCounter2] = useState(0);
-
-    useEffect(() => {
-        console.log("Pá e pum")
-    },[counter2])
-
     const [produtos, setProdutos] = useState([{}]);
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
-        console.log("useEffect será renderizado sempre que o componente ou qualquer objeto que for atualizado");
-        fetch("http://localhost:5000/produtos"),{
-            methof: "GET",
-            headers: {
+        if(!open) {
+        
+            fetch("http://localhost:5000/produtos",{
+            method: "GET",
+            headers:{
                 "Content-Type": "application/json"
-            } 
             }
-            .then((response) => response.json())
-            .then((listProdutos) => {
-                setProdutos(listProdutos);
             })
+            .then((response)=> response.json())
+            .then((listaProdutos)=>{
+                setProdutos(listaProdutos);
+            })
+        }
+      },[open]);
 
-    },[]);
-
-    const [open, setOpen] = useState(false)
-
-    return(
+      return (
         <div>
             <h1>Produtos</h1>
-
-            {open ? <ModalInserir open={open} setOpen={setOpen}/> : ""}
-            <button onClick={()=> setOpen=(true)}>Open - Modal</button>
-
-            <div>
-                <button onClick={()=>setCounter(counter + 1) }>Couter - {counter}</button>
-                <button onClick={()=>setCounter2(counter2 + 1) }>Couter - {counter2}</button>
-                <button onClick={()=>setCounter(0) }>Zerar</button>
-            </div>
-
+    
+            {open ? <ModalInserir open={open} setOpen={setOpen} /> : "" }
+            <button onClick={()=> setOpen(true)}>OPEN - MODAL</button>
            
             <table className={styles.table}>
                 <thead>
@@ -58,17 +44,15 @@ export default function Produtos() {
                     </tr>  
                 </thead>
                 <tbody>
-                    {produtos.map((produto,indice)=>(
-                    <tr key={indice}>
-                        <td>{produto.id}</td>
-                        <td>{produto.nome}</td>
-                        <td>R${produto.preco}</td>
-                        <td>
-                            <Link to={`/editar/produtos/${produto.id}`}><Editar/>Editar | </Link>
-                            <Link to={`/excluir/produtos/${produto.id}`}><Excluir/>Excluir</Link>
-                        </td>
-                    </tr>
-                ))}
+                {produtos.map((produto,indice)=>(
+                 <tr key={indice}>
+                    <td>{produto.id}</td>
+                    <td>{produto.nome}</td>
+                    <td>{produto.preco}</td>
+                    <td><Link to={`/editar/produtos/${produto.id}`}> <Editar/> </Link> |
+                     <Link to={`/excluir/produtos/${produto.id}`}> <Excluir/> </Link></td>
+                 </tr>
+            ))}
         
                 </tbody>
                 <tfoot>

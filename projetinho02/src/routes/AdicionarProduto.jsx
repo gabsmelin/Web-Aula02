@@ -53,7 +53,7 @@ export default function AdicionarProduto() {
                             <input type="text" name="nome" id="idNome" value={produtos.nome} onChange={handleChange}/>
                         </div>
                         <div>
-                            <label htmlFor="idPreco">Preço:</label>
+ 
                             <input type="number" name="preco" id="idPreco" value={produtos.preco} onChange={handleChange}/>
                         </div>
                         <div>
