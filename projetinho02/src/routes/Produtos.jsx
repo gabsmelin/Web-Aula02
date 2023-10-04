@@ -10,11 +10,12 @@ export default function Produtos() {
 
     const [produtos, setProdutos] = useState([{}]);
     const [open, setOpen] = useState(false);
+    const [id, setId] = useState(0);
 
     useEffect(() => {
         if(!open) {
         
-            fetch("http://localhost:5000/produtos",{
+            fetch("http://localhost:5001/produtos",{
             method: "GET",
             headers:{
                 "Content-Type": "application/json"
@@ -25,13 +26,19 @@ export default function Produtos() {
                 setProdutos(listaProdutos);
             })
         }
+        setId(0);
       },[open]);
+
+      const handleUpdate = (id) => {
+        setId(id);
+        setOpen(true);
+      }
 
       return (
         <div>
             <h1>Produtos</h1>
     
-            {open ? <ModalInserir open={open} setOpen={setOpen} /> : "" }
+            {open ? <ModalInserir open={open} setOpen={setOpen} idEditar={id} setId={setId}/> : "" }
             <button onClick={()=> setOpen(true)}>OPEN - MODAL</button>
            
             <table className={styles.table}>
@@ -49,7 +56,7 @@ export default function Produtos() {
                     <td>{produto.id}</td>
                     <td>{produto.nome}</td>
                     <td>{produto.preco}</td>
-                    <td><Link to={`/editar/produtos/${produto.id}`}> <Editar/> </Link> |
+                    <td><Link onClick={()=> handleUpdate(produto.id)}> <Editar/> </Link> |
                      <Link to={`/excluir/produtos/${produto.id}`}> <Excluir/> </Link></td>
                  </tr>
             ))}
